@@ -1,0 +1,13 @@
+ <launch>
+
+ <node type="rviz" name="rviz" pkg="rviz" args="-d $(find datmo)/config/default.rviz" /> 
+ <node pkg="datmo" type="datmo" name="datmo" output="screen">
+  <param name="lidar_frame" value="laser" />
+  <param name="world_frame" value="base_link" />
+  <param name="threshold_distance" value="0.2" />
+  <param name="euclidean_distance" value="0.25" />
+  <param name="pub_markers" value="true" />
+ </node>
+    
+  <node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0  map base_link 10" />
+</launch>
